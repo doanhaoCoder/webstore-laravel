@@ -168,13 +168,20 @@
                 <span class="text-primary me-1">{{ number_format($product->price, 0, ',', '.') }} VNĐ</span>
                 <!-- <span class="text-body text-decoration-line-through">$29.00</span> -->
             </div>
-            <div class="d-flex border-top gap-2 bg-secondary">
-    <a href="{{ route('products.show', $product->id) }}" class="btn btn-info btn-sm flex-grow-1 w-50">Xem chi tiết</a>
-    <form id="add-to-cart-form-{{ $product->id }}" data-product-id="{{ $product->id }}" class="flex-grow-1">
+            <div class="d-flex border-top ">
+    <!-- Nút "Xem chi tiết" -->
+    <a href="{{ route('products.show', $product->id) }}" class="btn btn-info btn-sm flex-grow-1 w-50">
+        <i class="fas fa-info-circle"></i> Xem chi tiết
+    </a>
+    <!-- Nút "Thêm vào giỏ hàng" -->
+    <form id="add-to-cart-form-{{ $product->id }}" data-product-id="{{ $product->id }}" class="flex-grow-1 w-50">
         @csrf
-        <button type="button" class="btn btn-primary btn-sm add-to-cart-button w-100">Thêm vào giỏ hàng</button>
+        <button type="button" class="btn btn-primary btn-sm add-to-cart-button w-100">
+            <i class="fas fa-shopping-cart"></i> Thêm vào giỏ hàng
+        </button>
     </form>
 </div>
+
         </div>
     </div>
 @endforeach
