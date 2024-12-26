@@ -142,3 +142,9 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::get('/dashboard/contacts', [ContactController::class, 'show'])->name('contacts.show');
 Route::get('/dashboard/contacts/{id}', [ContactController::class, 'detail'])->name('contacts.detail');
 Route::delete('/dashboard/contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+
+use App\Http\Controllers\ProfileController;
+
+// Route không có middleware 'auth'
+Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
+Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');

@@ -44,7 +44,7 @@ button {
         <form action="{{ url('register') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="name" class="form-label">Họ và tên</label>
+                <label for="name" class="form-label">Username</label>
                 <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="mb-3">

@@ -74,6 +74,8 @@
                     </div>
                     <a href="/contact" class="nav-item nav-link">Contact Us</a>
                     <a href="my-orders" class="nav-item nav-link">Orders</a>
+                    <a href="/profile/{{ session('user')->id }}" class="nav-item nav-link">Profile</a>
+
                 </div>
                 <div class="d-none d-lg-flex ms-2">
                     <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
