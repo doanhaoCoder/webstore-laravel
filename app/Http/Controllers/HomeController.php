@@ -20,9 +20,11 @@ class HomeController extends Controller
     {
         // Lấy sản phẩm theo ID
         $product = Product::findOrFail($id);
+        $categories = Category::all();
+
 
         // Trả về view và gửi dữ liệu sản phẩm
-        return view('products.show', compact('product'));
+        return view('products.show', compact('product','categories'));
     }
     
     // Phương thức hiển thị các sản phẩm cho trang /home/products

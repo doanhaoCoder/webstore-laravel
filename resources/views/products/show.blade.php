@@ -6,10 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Tiết Sản Phẩm - {{ $product->name }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .nav-link {
+            font-size: 150%;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .product-image {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product-details {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 
 <body>
-<a class="nav-link" href="/cart" style="font-size:150%; position: fixed; bottom: 20px; right: 20px; background-color: #007bff; color: white; padding: 10px 20px; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-decoration: none;">Giỏ Hàng</a>
+<a class="nav-link" href="/cart">Giỏ Hàng</a>
 
     <div class="container my-5">
         <a href="/" class="btn btn-primary mb-2">Back</a>
@@ -17,18 +52,20 @@
 
         <div class="row">
             <div class="col-md-6">
-                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="img-fluid">
+                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="img-fluid product-image">
             </div>
 
             <div class="col-md-6">
-                <h3 class="text-primary">{{ number_format($product->price, 0, ',', '.') }} VNĐ</h3>
-                <p><strong>Mô tả:</strong></p>
-                <p>{{ $product->description }}</p>
+                <div class="product-details">
+                    <h3 class="text-primary">{{ number_format($product->price, 0, ',', '.') }} VNĐ</h3>
+                    <p><strong>Mô tả:</strong></p>
+                    <p>{{ $product->description }}</p>
 
-                <form id="add-to-cart-form-{{ $product->id }}" data-product-id="{{ $product->id }}">
-                    @csrf
-                    <button type="button" class="btn btn-primary add-to-cart-button">Thêm vào giỏ hàng</button>
-                </form>
+                    <form id="add-to-cart-form-{{ $product->id }}" data-product-id="{{ $product->id }}">
+                        @csrf
+                        <button type="button" class="btn btn-primary add-to-cart-button">Thêm vào giỏ hàng</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -84,7 +121,7 @@
             });
         });
     });
-</script>
+    </script>
 </body>
 
 </html>

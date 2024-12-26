@@ -11,8 +11,9 @@ class ProductController extends Controller
     // Hiển thị tất cả sản phẩm
     public function index()
     {
+        $categories = Category::all();
         $products = Product::all();
-        return view('products.index', compact('products'));
+        return view('products.index', compact('products','categories'));
         // return view('home', compact('products'));
     }
 
