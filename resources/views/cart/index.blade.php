@@ -112,7 +112,7 @@
 
         <form action="{{ route('checkout') }}" method="POST" class="checkout-form mt-5">
             @csrf
-            <h3>Thông tin thanh toán</h3>
+            <h3>Thông tin giao hàng</h3>
             
             <div>
                 <label for="name">Họ và tên:</label>
@@ -130,7 +130,7 @@
                 <label for="address">Địa chỉ:</label>
                 <textarea name="customer_address" id="address" required></textarea>
             </div>
-            <button type="submit" class="btn btn-success">Thanh toán</button>
+            <button type="submit" class="btn btn-success">Đặt hàng</button>
         </form>
     </div>
 

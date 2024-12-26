@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2024 at 03:36 PM
+-- Generation Time: Dec 26, 2024 at 11:10 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -55,7 +55,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(5, 'Hoa Hồng', 'Hoa Hồng', '2024-12-14 06:58:26', '2024-12-14 08:22:32'),
+(5, 'Hoa Hồng', 'Đại diện cho tình yêu', '2024-12-14 06:58:26', '2024-12-26 13:43:17'),
 (7, 'Lan Hồ Điệp', 'Lan Hồ Điệp', '2024-12-14 13:29:34', '2024-12-14 13:32:22'),
 (8, 'Hoa Cúc', 'Hoa Cúc', '2024-12-14 13:34:34', '2024-12-14 13:34:34');
 
@@ -80,7 +80,9 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `message`, `created_at`, `updated_at`) VALUES
-(3, 'Minh Đại', 'minhdai@gmail.com', '0987654321', 'Tôi muốn cung cấp sản phẩm cho bên cửa hàng', '2024-12-23 06:52:06', '2024-12-23 06:52:06');
+(3, 'Minh Đại', 'minhdai@gmail.com', '0987654321', 'Tôi muốn cung cấp sản phẩm cho bên cửa hàng', '2024-12-23 06:52:06', '2024-12-23 06:52:06'),
+(4, 'Trung Hiếu', 'trunghieu@gmail.com', '01313716371', 'đơn hàng của mình chưa đc giao tới ạ', '2024-12-26 01:42:44', '2024-12-26 01:42:44'),
+(5, 'Trung Hiếu', 'trunghieu@gmail.com', '01313716371', 'tôi muốn cung cấp hàng cho bên bạn', '2024-12-26 14:36:24', '2024-12-26 14:36:24');
 
 -- --------------------------------------------------------
 
@@ -130,7 +132,9 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `customer_name`, `customer_email`, `customer_phone`, `customer_address`, `total`, `status`, `created_at`, `updated_at`, `user_id`) VALUES
 (18, 'Đoàn Nhật Hào', 'doannhathao2310@gmail.com', '0967093770', 'Tây Ninh', 760000.00, 'Đang giao hàng', '2024-12-23 07:14:47', '2024-12-23 07:31:48', 8),
-(19, 'Đại Nguyễn', 'dainguyen@gmail.com', '123456789', 'TP.HCM', 3940000.00, 'Đang duyệt', '2024-12-23 07:16:05', '2024-12-23 07:16:05', 10);
+(19, 'Đại Nguyễn', 'dainguyen@gmail.com', '123456789', 'TP.HCM', 3940000.00, 'Đang duyệt', '2024-12-23 07:16:05', '2024-12-23 07:16:05', 10),
+(20, 'admin', 'admin@gmail.com', '01231371', 'tphcm', 3980000.00, 'Đã nhận hàng', '2024-12-26 13:28:40', '2024-12-26 13:30:16', 8),
+(21, 'admin', 'admin@gmail.com', '01231371', '123', 3270000.00, 'Đang duyệt', '2024-12-26 15:04:37', '2024-12-26 15:04:37', 8);
 
 -- --------------------------------------------------------
 
@@ -168,7 +172,13 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_name`, `price`, `quantity`
 (31, 18, 'Hoa Hồng Cam', 760000.00, 1, '2024-12-23 07:14:47', '2024-12-23 07:14:47'),
 (32, 19, 'Hoa Hồng Đỏ', 380000.00, 7, '2024-12-23 07:16:05', '2024-12-23 07:16:05'),
 (33, 19, 'Hoa Hồng Trắng', 520000.00, 1, '2024-12-23 07:16:05', '2024-12-23 07:16:05'),
-(34, 19, 'Hoa Hồng Cam', 760000.00, 1, '2024-12-23 07:16:05', '2024-12-23 07:16:05');
+(34, 19, 'Hoa Hồng Cam', 760000.00, 1, '2024-12-23 07:16:05', '2024-12-23 07:16:05'),
+(35, 20, 'Hoa Hồng Vàng', 540000.00, 5, '2024-12-26 13:28:40', '2024-12-26 13:28:40'),
+(36, 20, 'Hoa Hồng Trắng', 520000.00, 1, '2024-12-26 13:28:40', '2024-12-26 13:28:40'),
+(37, 20, 'Hoa Hồng Cam', 760000.00, 1, '2024-12-26 13:28:40', '2024-12-26 13:28:40'),
+(38, 21, 'Hoa Hồng Vàng', 540000.00, 4, '2024-12-26 15:04:37', '2024-12-26 15:04:37'),
+(39, 21, 'Hoa Hồng Đỏ', 380000.00, 1, '2024-12-26 15:04:37', '2024-12-26 15:04:37'),
+(40, 21, 'Hoa Cúc Vàng', 730000.00, 1, '2024-12-26 15:04:37', '2024-12-26 15:04:37');
 
 -- --------------------------------------------------------
 
@@ -214,6 +224,9 @@ CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL DEFAULT 'user',
@@ -226,10 +239,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(8, 'admin', 'admin@gmail.com', NULL, '$2y$12$RPPmCajCvvflOl7NuGNJnOgWcyvSdDC4iotV/c9lLWIlvtkwwJF8K', 'admin', NULL, '2024-12-23 07:03:56', '2024-12-23 07:03:56'),
-(9, 'mod', 'mod@gmail.com', NULL, '$2y$12$P/md/qBAaXqmxXk7R4C9Tu5X/8.jgJsricZiqgFNrIwVmjTGQx7XK', 'mod', NULL, '2024-12-23 07:04:56', '2024-12-23 07:04:56'),
-(10, 'hao', 'doannhathao2310@gmail.com', NULL, '$2y$12$anJ2l7wKiH2p7B/NJXjQ9ekN.GITo0opzc246q.VW5JQ0W8rHuDoe', 'user', NULL, '2024-12-23 07:06:49', '2024-12-23 07:06:49');
+INSERT INTO `users` (`id`, `name`, `email`, `username`, `phone`, `address`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
+(8, 'admin', 'admin@gmail.com', 'Đoàn Nhật Hào', '0967093770', 'Tây Ninh', NULL, '$2y$12$RPPmCajCvvflOl7NuGNJnOgWcyvSdDC4iotV/c9lLWIlvtkwwJF8K', 'admin', NULL, '2024-12-23 07:03:56', '2024-12-26 05:09:06'),
+(9, 'mod', 'mod@gmail.com', '', NULL, NULL, NULL, '$2y$12$P/md/qBAaXqmxXk7R4C9Tu5X/8.jgJsricZiqgFNrIwVmjTGQx7XK', 'mod', NULL, '2024-12-23 07:04:56', '2024-12-23 07:04:56'),
+(10, 'hao', 'doannhathao@gmail.com', 'daon hao', '0967093770', 'Tây Ninh', NULL, '$2y$12$anJ2l7wKiH2p7B/NJXjQ9ekN.GITo0opzc246q.VW5JQ0W8rHuDoe', 'user', NULL, '2024-12-23 07:06:49', '2024-12-26 05:21:55'),
+(11, 'trunghieu', 'trunghieu@gmail.com', NULL, NULL, NULL, NULL, '$2y$12$EJJuJASUb7D9ftsaiAV2luJBEXSHrZT0RfjB/PID/D.KLpsQ52N26', 'admin', NULL, '2024-12-26 05:32:23', '2024-12-26 05:33:44');
 
 --
 -- Indexes for dumped tables
@@ -302,13 +316,13 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -320,25 +334,25 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables

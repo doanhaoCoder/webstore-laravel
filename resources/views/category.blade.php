@@ -120,7 +120,7 @@
 
     <div class="container my-5">
         <!-- <a href="/" class="btn btn-primary mb-2">Back</a> -->
-        <h1>Sản phẩm trong danh mục: {{ $category->name }}</h1>
+        <!-- <h1>Sản phẩm trong danh mục: {{ $category->id }}</h1> -->
         <div class="row">
             @foreach ($products as $product)
                 <div class="col-md-3 mb-4">
