@@ -132,8 +132,11 @@ Route::get('/category/{category_id}', function ($category_id) {
     // Lấy các sản phẩm có category_id trùng với category_id của danh mục
     $products = Product::where('category_id', $category_id)->get();
 
+    // Lấy tất cả các danh mục để hiển thị trong dropdown
+    $categories = Category::all();
+
     // Trả về view và truyền danh mục và sản phẩm vào view
-    return view('category', compact('category', 'products'));
+    return view('category', compact('category', 'products', 'categories'));
 });
 
 use App\Http\Controllers\ContactController;

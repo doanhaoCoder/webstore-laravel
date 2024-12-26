@@ -74,7 +74,10 @@
                     </div>
                     <a href="/contact" class="nav-item nav-link">Contact Us</a>
                     <a href="my-orders" class="nav-item nav-link">Orders</a>
+                    @if (session()->has('user'))
                     <a href="/profile/{{ session('user')->id }}" class="nav-item nav-link">Profile</a>
+                    @else
+                    @endif
 
                 </div>
                 <div class="d-none d-lg-flex ms-2">
@@ -105,7 +108,7 @@
             <h1 class="display-3 mb-3 animated slideInDown">Trang Chủ</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a class="text-body" href="#">Trang Chủ</a></li>
+                    <!-- <li class="breadcrumb-item"><a class="text-body" href="#">Trang Chủ</a></li> -->
                     <!-- <li class="breadcrumb-item"><a class="text-body" href="#">Pages</a></li>
                     <li class="breadcrumb-item text-dark active" aria-current="page">Products</li> -->
                 </ol>
@@ -206,7 +209,7 @@
 </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
                         <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
+                            <!-- <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a> -->
                         </div>
                     </div>
                 </div>
@@ -253,7 +256,7 @@
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <h1 class="fw-bold text-primary mb-4">F<span class="text-secondary">oo</span>dy</h1>
+                    <h1 class="fw-bold text-primary mb-4">Flow<span class="text-secondary">erEr</span>dtree</h1>
                     <p>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
