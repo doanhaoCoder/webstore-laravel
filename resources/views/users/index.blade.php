@@ -12,7 +12,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Tên</th>
+                <th>Username</th>
                 <th>Email</th>
                 <th>Role</th>
                 <th>Hành động</th>
@@ -26,6 +26,7 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->role }}</td>
                 <td>
+                    <a href="{{ route('users.detail', $user->id) }}" class="btn btn-info">Xem</a>
                     <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Sửa</a>
                     <form action="{{ route('users.delete', $user->id) }}" method="POST" style="display:inline;">
                         @csrf

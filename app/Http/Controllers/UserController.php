@@ -51,6 +51,13 @@ class UserController extends Controller
         return view('users.edit', compact('user'));
     }
 
+    // Hiển thị chi tiết người dùng
+    public function detail($id)
+    {
+        $user = User::findOrFail($id);
+        return view('users.detail', compact('user'));
+    }
+
     // Cập nhật người dùng
     public function update(Request $request, $id)
     {
@@ -58,6 +65,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
             'role' => 'required|string',
+            'password' => 'nullable|string|min:3|confirmed',
         ]);
 
         $user = User::findOrFail($id);
@@ -65,6 +73,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
+            'password' => $request->password ? Hash::make($request->password) : $user->password,
         ]);
 
         return redirect()->route('users.index')->with('success', 'User updated successfully');

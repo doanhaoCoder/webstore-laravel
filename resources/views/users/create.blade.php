@@ -9,7 +9,7 @@
     <form action="{{ route('users.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="name">Tên người dùng</label>
+            <label for="name">Username</label>
             <input type="text" id="name" name="name" class="form-control" value="{{ old('name') }}" required>
             @error('name')
                 <div class="alert alert-danger">{{ $message }}</div>

@@ -10,6 +10,7 @@
     <div class="container mt-5">
         <div class="card">
             <div class="card-header">
+            <a href="/" class="btn btn-primary mb-2">Back</a>
                 <h1>Profile</h1>
             </div>
             <div class="card-body">

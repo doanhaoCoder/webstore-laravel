@@ -11,7 +11,7 @@
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="name">Tên</label>
+            <label for="name">Username</label>
             <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required>
         </div>
         <div class="form-group">
@@ -25,6 +25,14 @@
                 <option value="mod" {{ $user->role == 'mod' ? 'selected' : '' }}>Mod</option>
                 <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
             </select>
+        </div>
+        <div class="form-group">
+            <label for="password">Mật khẩu mới</label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <div class="form-group">
+            <label for="password_confirmation">Xác nhận mật khẩu mới</label>
+            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
         </div>
         <button type="submit" class="btn btn-warning mt-2">Cập nhật</button>
     </form>
